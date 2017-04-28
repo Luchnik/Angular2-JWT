@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import 'rxjs/add/operator/map';
 
-import { AuthService } from '../auth.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',

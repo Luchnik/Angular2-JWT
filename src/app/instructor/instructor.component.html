@@ -1,6 +1,6 @@
 <h3>List of instructors</h3>
 
-<button class="btn btn-primary btn-sm" [routerLink]="['/instructors/new']">
+<button class="btn btn-primary btn-sm" [routerLink]="['/instructors/new']" *ngIf="auth.isAdmin()">
   Add Instructor
 </button>
 
@@ -11,3 +11,5 @@
     <h5>{{ instructor.company }}</h5>
   </li>
 </ul>
+
+<p class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</p>

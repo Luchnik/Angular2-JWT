@@ -3,6 +3,7 @@ import 'rxjs/add/operator/map';
 import * as md5 from 'md5';
 
 import { InstructorService } from '../instructor.service';
+import { AuthService } from "app/auth/auth.service";
 
 @Component({
   selector: 'app-instructor',
@@ -14,7 +15,7 @@ export class InstructorComponent implements OnInit {
   instructors: any[];
   errorMessage: string;
 
-  constructor(private instructorService: InstructorService) { }
+  constructor(private instructorService: InstructorService, private auth: AuthService) { }
 
   ngOnInit() {
     this.getInstructors();

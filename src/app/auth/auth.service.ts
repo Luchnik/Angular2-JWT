@@ -3,8 +3,9 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { tokenNotExpired } from 'angular2-jwt';
+import * as jwtDecode from 'jwt-decode';
 
-import { API_URL } from './app.constants';
+import { API_URL } from '../app.constants';
 
 @Injectable()
 export class AuthService {
@@ -31,6 +32,10 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return tokenNotExpired('token');
+  }
+
+  isAdmin(): boolean {
+    return jwtDecode(this.getToken()).scope === 'admin';
   }
 
   getToken(): string {

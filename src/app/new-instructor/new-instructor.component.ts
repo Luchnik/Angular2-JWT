@@ -12,6 +12,7 @@ import { InstructorService } from '../instructor.service';
 export class NewInstructorComponent {
 
   instructor: any;
+  errorMessage: string;
 
   constructor(private instructorService: InstructorService, private location: Location) { }
 
@@ -19,7 +20,8 @@ export class NewInstructorComponent {
     this.instructorService.addInstructor(data)
       .map(res => res.json())
       .subscribe(
-        data => this.goBack()
+        data => this.goBack(),
+        error => this.errorMessage = error.json().message
       )
   }
 
