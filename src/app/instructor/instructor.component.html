@@ -1,0 +1,13 @@
+<h3>List of instructors</h3>
+
+<button class="btn btn-primary btn-sm" [routerLink]="['/instructors/new']">
+  Add Instructor
+</button>
+
+<ul>
+  <li *ngFor="let instructor of instructors">
+    <h4 class="text-danger">{{ instructor.first_name + ' ' + instructor.last_name }}</h4>
+    <p>{{ instructor.email }}</p>
+    <h5>{{ instructor.company }}</h5>
+  </li>
+</ul>
