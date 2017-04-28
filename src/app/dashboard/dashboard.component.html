@@ -1,0 +1,15 @@
+<h4 class="text-center">Welcome to your dashboard</h4>
+<div class="row">
+  <div class="col-sm-4">
+    <img [src]="person.gravatar">
+      <div>Name: <label class="text-danger">{{ person.username }}</label></div>
+      <div>Email: <label class="text-danger">{{ person.email }}</label></div>
+  </div>
+  <div class="col-sm-8">
+    <pre>{{ person | json }}</pre>
+  </div>
+</div>
+
+
+
+

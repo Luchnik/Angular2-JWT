@@ -1,3 +1,28 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h2><a [routerLink]="['/']">Viewer</a></h2>
+    </div>
+
+    <div class="col-sm-8 text-right">
+      <button type="button" class="btn btn-outline-danger btn-sm" [routerLink]="['dashboard']" *ngIf="auth.isAuthenticated()">
+        Dashboard
+      </button>
+      <button type="button" class="btn btn-outline-primary btn-sm" [routerLink]="['login']" *ngIf="!auth.isAuthenticated()">
+        Log In
+      </button>
+      <button type="button" class="btn btn-outline-primary btn-sm" (click)="auth.logout()" *ngIf="auth.isAuthenticated()">
+        Log Out
+      </button>
+    </div>
+
+    <div class="jumbotron">
+      <h1>Welcome to viewer!</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr>
+      <p class="text-danger" *ngIf="!auth.isAuthenticated()">Please login or signup into system!</p>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
